@@ -77,8 +77,8 @@
           "type": "spotify"
         },
         {
-          "background": "#FF0000",
-          "foreground": "#ffffff",
+          "background": "#E0144C",
+          "foreground": "#011627",
           "leading_diamond": "\ue0b2",
           "properties": {
             "playing_icon": "\uf16a ",
