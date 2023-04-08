@@ -56,7 +56,7 @@
                     "background": "#29315A",
                     "style": "diamond",
                     "template": " {{ .Path }} ",
-		    "leading_diamon":"\ue0b6",
+                    "leading_diamond": "\ue0b6",
                     "trailing_diamond": "\ue0b4",
                     "type": "path"
                 }
