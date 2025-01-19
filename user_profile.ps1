@@ -1,19 +1,32 @@
-Import-Module posh-git
-
-function Get-ScriptDirectory { Split-Path $MyInvocaction.ScriptName }
-
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/json.omp.json" | Invoke-Expression
-oh-my-posh init pwsh --config "C:\Users\$env:USERNAME\.config\powershell\profile.omp.json" | Invoke-Expression
-
+# Imports
 Import-Module -Name Terminal-Icons
+Import-Module -Name PSReadLine
 
+# Configurations
+Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineKeyHandler -Chord "Ctrl+d" -Function DeleteChar
 Set-PSReadLineOption -PredictionSource History
 
-Set-Alias vim nvim
-Set-Alias ll ls
-Set-Alias g git
+# Styles
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/catppuccin_latte.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/montys.omp.json" | Invoke-Expression
 
-cls
+# Aliases
+set-alias ll 'ls'
+set-alias cls 'clear'
+Set-Alias vim 'nvim'
+Set-Alias g 'git'
+
+# Functions
+function gs { git status }
+function gp { git pull }
+function gco { param([string]$msg); git commit -m $msg }
+function gpu { git push }
+function gd { git diff }
+function docs { Set-Location -Path "$HOME\Documents" }
+function dl { Set-Location -Path "$HOME\Downloads" }
+function proj { Set-Location -Path "$HOME\Documents\Projects" }
+function root { Set-Location -Path "C:\" }
+function Get-ScriptDirectory { Split-Path $MyInvocaction.ScriptName }
